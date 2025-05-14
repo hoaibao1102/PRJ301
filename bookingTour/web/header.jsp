@@ -1,4 +1,4 @@
-99<%-- 
+<%-- 
     Document   : header
     Created on : May 12, 2025, 3:41:05 PM
     Author     : MSI PC
@@ -115,7 +115,7 @@
                 background-color: #2980b9;
             }
 
-/*             Mobile view 
+/*             Mobile view */
             @media (max-width: 768px) {
                 .menu {
                     display: none;
@@ -152,7 +152,7 @@
                     width: 100%;
                     justify-content: flex-start;
                 }
-            }*/
+            }
         </style>
     </head>
     <body>
@@ -176,8 +176,8 @@
                             <button class="search-button">🔍</button>
                         </div>
                         <div class="auth-buttons">
-                            <a href="register.jsp">Đăng ký</a>
-                            <a href="login.jsp">Đăng nhập</a>
+                            <a href="RegisForm.jsp">Đăng ký</a>
+                            <a href="LoginForm.jsp">Đăng nhập</a>
                         </div>
                     </div>
                 </nav>
