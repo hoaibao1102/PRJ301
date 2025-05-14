@@ -8,6 +8,7 @@ import DTO.UserDTO;
 import UTILS.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -47,6 +48,25 @@ public class UserDAO implements IDAO<UserDTO, String>{
 
     @Override
     public UserDTO readbyID(String id) {
+        String sql = "SELECT * FROM tblUsers WHERE  email = ? or phone = ? ";
+        try {
+            Connection conn = DBUtils.getConnection();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return new UserDTO(
+                        rs.getInt("id"), 
+                        rs.getString("full_name"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("password"),
+                        rs.getString("role")
+                );
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return null;
     }
 
