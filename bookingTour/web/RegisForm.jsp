@@ -1,6 +1,6 @@
 <%-- 
-    Document   : LoginForm
-    Created on : May 13, 2025, 4:32:35 PM
+    Document   : RegisForm
+    Created on : May 13, 2025, 4:54:54 PM
     Author     : MSI PC
 --%>
 
@@ -13,6 +13,5 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        
     </body>
 </html>
