@@ -115,7 +115,7 @@
                 background-color: #2980b9;
             }
 
-            /* Mobile view */
+/*             Mobile view 
             @media (max-width: 768px) {
                 .menu {
                     display: none;
@@ -152,7 +152,7 @@
                     width: 100%;
                     justify-content: flex-start;
                 }
-            }
+            }*/
         </style>
     </head>
     <body>
