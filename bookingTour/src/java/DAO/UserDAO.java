@@ -48,15 +48,15 @@ public class UserDAO implements IDAO<UserDTO, String>{
 
     @Override
     public UserDTO readbyID(String id) {
-        String sql = "SELECT * FROM tblUsers WHERE  email = ? or phone = ? ";
+        String sql = "SELECT * FROM users WHERE  email = ? OR phone = ? ";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, id);
+            pst.setString(2, id);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                return new UserDTO(
-                        rs.getInt("id"), 
+                return new UserDTO( 
                         rs.getString("full_name"),
                         rs.getString("email"),
                         rs.getString("phone"),

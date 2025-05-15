@@ -55,7 +55,7 @@ public class loginController extends HttpServlet {
                         
                     }else{
                         request.setAttribute("message","Incorrect UserID or PassWord");
-                        url = "login.jsp";
+                        url = "LoginForm.jsp";
                     }
                 }
 

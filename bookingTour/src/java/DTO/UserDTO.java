@@ -9,7 +9,6 @@ package DTO;
  * @author MSI PC
  */
 public class UserDTO {
-    private int id;
     private String fullName;
     private String email;
     private String phone;
@@ -17,8 +16,7 @@ public class UserDTO {
     private String role;
 
     // Constructor
-    public UserDTO(int id, String fullName, String email, String phone, String password, String role) {
-        this.id = id;
+    public UserDTO( String fullName, String email, String phone, String password, String role) {
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
@@ -27,14 +25,6 @@ public class UserDTO {
     }
 
     // Getters and Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getFullName() {
         return fullName;
     }

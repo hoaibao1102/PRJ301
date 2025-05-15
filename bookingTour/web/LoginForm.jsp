@@ -67,7 +67,7 @@
                 margin-bottom: 1.5rem;
             }
 
-            input[type="email"],
+            input[type="emailOrPhone"],
             input[type="password"] {
                 width: 100%;
                 padding: 0.9rem;
@@ -142,8 +142,8 @@
             <h2>Đăng nhập</h2>
 
             <form action="loginController" method="post"> 
-                <input type="hidden" value="login" name="action">
-                <input type="email" name="txtEmailOrPhone" placeholder="Email hoặc Số điện thoại" required>
+                <input type="hidden" value="login" name="action"> 
+                <input type="emailOrPhone" name="txtEmailOrPhone" placeholder="Email hoặc Số điện thoại" required>
                 <input type="password" name="txtPassword" placeholder="Mật khẩu" required>
 
                 <a href="#" class="forgot-link">Quên mật khẩu?</a>

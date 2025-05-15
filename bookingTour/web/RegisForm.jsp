@@ -131,28 +131,28 @@
         </style>
     </head>
     <body>
+      
         <%@include file="header.jsp" %>
         <div class="register-container">
             <h2>Create Your Account</h2>
 
-            <form>
+            <form action="regisController" method="post">
+                <input type="hidden" value="regis" name="action"> 
                 <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="John Doe" required>
+                <input type="text" id="name" name="txtFullname" placeholder="John Doe" required >
+                <%%>
 
                 <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="example@email.com" required>
+                <input type="email" id="email" name="txtEmail" placeholder="example@email.com" required>
 
                 <label for="phone">Phone Number</label>
                 <input type="tel" id="phone" placeholder="0123 456 789" required>
 
-                <label for="address">Address (Optional)</label>
-                <input type="text" id="address" placeholder="123 Street, City">
-
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="********" required>
+                <input type="password" id="password" name="txtPassword" placeholder="********" required>
 
                 <label for="confirm">Confirm Password</label>
-                <input type="password" id="confirm" placeholder="********" required>
+                <input type="password" id="confirm" name="txtConfirmPassword" placeholder="********" required>
 
                 <div class="terms">
                     <input type="checkbox" id="agree" required>

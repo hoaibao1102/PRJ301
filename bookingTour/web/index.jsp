@@ -31,19 +31,59 @@
                 font-family: Arial, sans-serif;
                 background-color: #fafafa;
                 color: #333;
+
+
             }
 
-            /* Banner */
-            .banner {
-                background: url('banner.jpg') center/cover no-repeat;
-                height: 300px;
+            .slider-container {
+                max-width: 1200px;
+                margin: 20px auto 40px auto;
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                position: relative;
+            }
+
+            .slider {
+                position: relative;
+                width: 100%;
+                height: 305px;
+                text-align: center;
+            }
+
+            .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+                z-index: 1;
+            }
+
+            .slide.active {
+                opacity: 1;
+                z-index: 2;
+            }
+
+            .slider-title {
+                position: absolute;
+                top: 15px;
+                left: 23%;
                 color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2.5rem;
-                font-weight: bold;
-                text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+                font-size: 1.8rem;
+                font-weight: 700;
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+                z-index: 10;
+                user-select: none;
+            }
+
+            /* Hover phóng to nhẹ card */
+            .card:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             }
 
             /* Section chính */
@@ -141,31 +181,40 @@
     <body>
 
         <jsp:include page="header.jsp"/>
-
-        <div class="banner">
-            Khám phá Việt Nam theo cách của bạn!
+        
+        
+        <!-- Chèn ngay dưới phần banner -->
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slider-title">Khám phá Việt Nam theo cách của bạn!</div>
+                <img src="assets/images/danangimg.jpg" alt="Đà Nẵng" class="slide active">
+                <img src="assets/images/dalatimg.webp" alt="Đà Lạt" class="slide">
+                <img src="assets/images/vungtauimg.jpg" alt="Vũng Tàu" class="slide">
+                <img src="assets/images/hanoiimg.jpg" alt="Hà Nội" class="slide">
+            </div>
         </div>
+
 
         <div class="section">
             <div class="title">Điểm đến nổi bật</div>
             <div class="grid">
                 <div class="card">
-                    <img src="img/danang.jpg" alt="Đà Nẵng">
+                    <img src="assets/images/danangimg.jpg" alt="Đà Nẵng">
                     <h4>Đà Nẵng</h4>
                     <a href="place-list.jsp?location=Đà Nẵng">Xem thêm</a>
                 </div>
                 <div class="card">
-                    <img src="img/dalat.jpg" alt="Đà Lạt">
+                    <img src="assets/images/dalatimg.webp" alt="Đà Lạt">
                     <h4>Đà Lạt</h4>
                     <a href="place-list.jsp?location=Đà Lạt">Xem thêm</a>
                 </div>
                 <div class="card">
-                    <img src="img/vungtau.jpg" alt="Vũng Tàu">
+                    <img src="assets/images/vungtauimg.jpg" alt="Vũng Tàu">
                     <h4>Vũng Tàu</h4>
                     <a href="place-list.jsp?location=Vũng Tàu">Xem thêm</a>
                 </div>
                 <div class="card">
-                    <img src="img/hanoi.jpg" alt="Hà Nội">
+                    <img src="assets/images/hanoiimg.jpg" alt="Hà Nội">
                     <h4>Hà Nội</h4>
                     <a href="place-list.jsp?location=Hà Nội">Xem thêm</a>
                 </div>
@@ -176,24 +225,44 @@
             <div class="title">Gợi ý ăn uống & vui chơi</div>
             <div class="grid">
                 <div class="card">
-                    <img src="img/banh_khot.jpg" alt="Bánh khọt Vũng Tàu">
+                    <img src="assets/images/banhkhotimg.jpg" alt="Bánh khọt Vũng Tàu">
                     <h4>Bánh khọt Gốc Vú Sữa</h4>
                     <a href="https://goo.gl/maps/Q3Q4pxAf1vZcJt4Z9" target="_blank">Xem bản đồ</a>
                 </div>
                 <div class="card">
-                    <img src="img/ngu_hanh_son.jpg" alt="Ngũ Hành Sơn">
+                    <img src="assets/images/nguhanhsonimg.jpg" alt="Ngũ Hành Sơn">
                     <h4>Ngũ Hành Sơn</h4>
                     <a href="https://goo.gl/maps/v2FHvN61Z69iL8DA7" target="_blank">Xem bản đồ</a>
                 </div>
                 <div class="card">
-                    <img src="img/bun_cha_obama.jpg" alt="Bún chả Hương Liên">
+                    <img src="assets/images/bucha.jpg" alt="Bún chả Hương Liên">
                     <h4>Bún chả Hương Liên</h4>
                     <a href="https://goo.gl/maps/XUgYjpuSAv1cF5RF6" target="_blank">Xem bản đồ</a>
                 </div>
             </div>
         </div>
 
-        <jsp:include page="footer.jsp"/>
+    </div>
 
-    </body>
+    <jsp:include page="footer.jsp"/>
+
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }, 2500); // 3 giây
+    </script>
+
+
+</body>
 </html>
