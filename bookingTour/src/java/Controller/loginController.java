@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import static jdk.nashorn.internal.objects.NativeString.search;
 
-
 /**
  *
  * @author MSI PC
@@ -24,8 +23,8 @@ import static jdk.nashorn.internal.objects.NativeString.search;
 @WebServlet(name = "loginController", urlPatterns = {"/loginController"})
 public class loginController extends HttpServlet {
 
-    private static final String LOGIN_PAGE= "loginForm.jsp" ;
-         
+    private static final String LOGIN_PAGE = "LoginForm.jsp";
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,23 +46,26 @@ public class loginController extends HttpServlet {
                 if (action.equals("login")) {
                     String txtEmailOrPhone = request.getParameter("txtEmailOrPhone");
                     String txtPassword = request.getParameter("txtPassword");
-                    
-                    if(isValidLogin(txtEmailOrPhone, txtPassword)){
+
+                    if (isValidLogin(txtEmailOrPhone, txtPassword)) {
                         url = "index.jsp";
                         UserDTO user = getUser(txtEmailOrPhone);
                         request.getSession().setAttribute("nameUser", user);
-                        
-                    }else{
-                        request.setAttribute("message","Incorrect UserID or PassWord");
-                        url = "LoginForm.jsp";
+
+                    } else {
+                        request.setAttribute("message", "Invalid login account ");
+                        url = LOGIN_PAGE;
                     }
+                } else if (action.equals("logout")) {
+                    url = "index.jsp";
+                    request.getSession().invalidate();
                 }
 
             }
 
         } catch (Exception e) {
-            log("Error in MainController: " +e.toString());
-        }finally{
+            log("Error in MainController: " + e.toString());
+        } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         }
@@ -111,7 +113,7 @@ public class loginController extends HttpServlet {
     private boolean isValidLogin(String txtEmailOrPhone, String txtPassword) {
         UserDTO user = getUser(txtEmailOrPhone);
         return user != null && user.getPassword().equals(txtPassword);
-        
+
     }
 
     private UserDTO getUser(String txtEmailOrPhone) {

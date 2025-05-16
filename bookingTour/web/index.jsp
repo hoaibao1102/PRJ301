@@ -69,7 +69,7 @@
             .slider-title {
                 position: absolute;
                 top: 15px;
-                left: 23%;
+                left: 17%;
                 color: white;
                 font-size: 1.8rem;
                 font-weight: 700;

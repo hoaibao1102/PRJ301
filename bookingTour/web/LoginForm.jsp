@@ -145,14 +145,19 @@
                 <input type="hidden" value="login" name="action"> 
                 <input type="emailOrPhone" name="txtEmailOrPhone" placeholder="Email hoặc Số điện thoại" required>
                 <input type="password" name="txtPassword" placeholder="Mật khẩu" required>
-
+                <%
+                        String message = request.getAttribute("message")+"";
+                %>
+                <span style="color: red; font-size: 17px; position: relative; top: -17px; left: -23%"><i> <%=message.equals("null")?"":message%></i> </span>  
                 <a href="#" class="forgot-link">Quên mật khẩu?</a>
 
                 <input type="submit" value="Login" class="login-btn">
             </form>
+                
+                
 
             <div class="register-link">
-                Bạn chưa có tài khoản? <a href="register.jsp">Đăng ký ngay</a>
+                Bạn chưa có tài khoản? <a href="RegisForm.jsp">Đăng ký ngay</a>
             </div>
         </div>
         <%@include file="footer.jsp"%>

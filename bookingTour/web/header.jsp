@@ -3,7 +3,7 @@
     Created on : May 12, 2025, 3:41:05 PM
     Author     : MSI PC
 --%>
-
+<%@ page import="DTO.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
             .header {
                 background-color: #2c3e50;
@@ -115,7 +119,7 @@
                 background-color: #2980b9;
             }
 
-/*             Mobile view */
+            /*             Mobile view */
             @media (max-width: 768px) {
                 .menu {
                     display: none;
@@ -153,6 +157,40 @@
                     justify-content: flex-start;
                 }
             }
+
+            .user-circle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #3498db; /* màu nền */
+                color: white; /* màu chữ */
+                font-weight: bold;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%; /* tạo hình tròn */
+                font-size: 1.2rem;
+                cursor: default;
+                user-select: none;
+                margin-right: 1rem;
+                text-transform: uppercase;
+            }
+
+            /* Nút đăng xuất */
+            .logout-btn {
+                background: #3498db;
+                border: none;
+                border-radius: 4px;
+                color: #fff;
+                padding: 0.4rem 0.8rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-top: 6px;
+            }
+
+            .logout-btn:hover {
+                background: #2980b9;
+            }
+
         </style>
     </head>
     <body>
@@ -176,8 +214,25 @@
                             <button class="search-button">🔍</button>
                         </div>
                         <div class="auth-buttons">
+                            <%
+                                 UserDTO user = (UserDTO)session.getAttribute("nameUser");
+                                 if (user == null) {
+                            %>
                             <a href="RegisForm.jsp">Đăng ký</a>
                             <a href="LoginForm.jsp">Đăng nhập</a>
+                            <%
+                                } else {
+                            %>
+                            <div class="user-circle" title="<%= user.getFullName() %>">
+                                <%= user.getFullName().substring(0,1).toUpperCase() %>
+                            </div>                            
+                            <form action="loginController" method="post" style="display:inline;">
+                                <input type="hidden" name="action" value="logout" />
+                                 <button type="submit" class="logout-btn">Đăng xuất</button>
+                            </form>
+                            <%
+                                }
+                            %>
                         </div>
                     </div>
                 </nav>

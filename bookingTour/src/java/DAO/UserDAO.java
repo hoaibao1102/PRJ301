@@ -47,13 +47,13 @@ public class UserDAO implements IDAO<UserDTO, String>{
     }
 
     @Override
-    public UserDTO readbyID(String id) {
+    public UserDTO readbyID(String searchTerm) {
         String sql = "SELECT * FROM users WHERE  email = ? OR phone = ? ";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, id);
-            pst.setString(2, id);
+            pst.setString(1, searchTerm);
+            pst.setString(2, searchTerm);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 return new UserDTO( 
@@ -128,4 +128,6 @@ public class UserDAO implements IDAO<UserDTO, String>{
     public List<UserDTO> searchLogin(String textLogin) {
         return null;
     }
+
+    
 }
