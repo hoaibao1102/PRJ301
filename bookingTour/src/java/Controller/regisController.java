@@ -48,7 +48,6 @@ public class regisController extends HttpServlet {
                 url = REGIS_PAGE;
             } else {
                 if (action.equals("regis")) {
-                    if ("regis".equals(action)) {
                         boolean checkedError = false;
                         // Lấy dữ liệu từ form đăng ký
                         String fullName = request.getParameter("txtFullname");
@@ -91,8 +90,6 @@ public class regisController extends HttpServlet {
                             request.setAttribute("newUser", newUser);
                             url = LOGIN_PAGE;
                         }
-
-                }
 
                 }
             }

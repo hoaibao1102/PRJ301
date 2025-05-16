@@ -1,48 +1,81 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <title>Bootstrap Form Demo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+    
+</head>
+<body>
+    <div class="container">
         <h1>HTML FORM</h1>
         <form action="index.html">
-            TEXTBOX <input type="text" name="txtText" value="" size="5"/> <br>
-            Password <input type="password" name="txtPassword" value="" > <br>
-            Hidden <input type="hidden" name="txtHidden" value="" > <br>
-            Male <input type="checkbox" name="chkCheck" value="ON" checked="checked" > <br>
-            
-            Status
-            <input type="radio" name="rdoStatus" value="Single" checked="checked" >Single <br>
-            <input type="radio" name="rdoStatus" value="Marrid"  >Narried<br>
-            <input type="radio" name="rdoStatus" value="Divorsed" >Divorsed <br>
-            
-            Combobox <select name="txtCombo">
-                <option value="Servelet"> JSP AND SERVELET</option>
-                <option value="EJB">EJB</option> 
-            </select><br>
-            
-            Mutiple <select name="txtList" multiple="multiple" size="3">
-                <option value="Servelet"> JSP AND SERVELET</option>
-                <option value="EJB">EJB</option> 
-                <option value="JAVA">Core Java</option>
-            </select><br>
-            
-            TEXTAREA <textarea name="txtArea" rows="4" cols="20">
-                this is a form para demo!!!
-            </textarea><br>
-            
-            <input type="submit" name="txtB">
-            <input type="submit" value="Register" name="action">
-              <input type="reset" name="txtB">
-              <input type="button" value="Javascript" name="txtB" onclick="">     
+            <div class="mb-3">
+                <label for="txtText" class="form-label">Textbox</label>
+                <input type="text" class="form-control form-control-sm" id="txtText" name="txtText" size="5" />
+            </div>
+
+            <div class="mb-3">
+                <label for="txtPassword" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-sm" id="txtPassword" name="txtPassword" />
+            </div>
+
+            <input type="hidden" name="txtHidden" value="" />
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="chkCheck" name="chkCheck" value="ON" checked />
+                <label class="form-check-label" for="chkCheck">Male</label>
+            </div>
+
+            <label class="form-label d-block">Status</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="rdoSingle" name="rdoStatus" value="Single" checked />
+                <label class="form-check-label" for="rdoSingle">Single</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="rdoMarried" name="rdoStatus" value="Married" />
+                <label class="form-check-label" for="rdoMarried">Married</label>
+            </div>
+            <div class="form-check form-check-inline mb-3">
+                <input class="form-check-input" type="radio" id="rdoDivorced" name="rdoStatus" value="Divorced" />
+                <label class="form-check-label" for="rdoDivorced">Divorced</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="txtCombo" class="form-label">Combobox</label>
+                <select class="form-select form-select-sm" id="txtCombo" name="txtCombo">
+                    <option value="Servlet">JSP AND SERVLET</option>
+                    <option value="EJB">EJB</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="txtList" class="form-label">Multiple Select</label>
+                <select class="form-select form-select-sm" id="txtList" name="txtList" multiple size="3">
+                    <option value="Servlet">JSP AND SERVLET</option>
+                    <option value="EJB">EJB</option>
+                    <option value="JAVA">Core Java</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="txtArea" class="form-label">Textarea</label>
+                <textarea class="form-control" id="txtArea" name="txtArea" rows="4">this is a form para demo!!!</textarea>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary me-2" name="txtB" value="Submit" />
+                <input type="submit" class="btn btn-success me-2" value="Register" name="action" />
+                <input type="reset" class="btn btn-warning me-2" name="txtB" value="Reset" />
+                <input type="button" class="btn btn-info" value="Javascript" name="txtB" onclick="" />
+            </div>
         </form>
-    </body>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

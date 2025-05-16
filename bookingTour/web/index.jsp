@@ -31,8 +31,6 @@
                 font-family: Arial, sans-serif;
                 background-color: #fafafa;
                 color: #333;
-
-
             }
 
             .slider-container {
@@ -46,7 +44,7 @@
 
             .slider {
                 position: relative;
-                width: 100%;
+                width: 100vw;
                 height: 305px;
                 text-align: center;
             }

@@ -146,7 +146,7 @@
                 <input type="email" id="email" name="txtEmail" placeholder="example@email.com" required>
 
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="0123 456 789" required>
+                <input type="tel" id="phone"  name="txtPhone" placeholder="0123 456 789" required>
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="txtPassword" placeholder="********" required>
