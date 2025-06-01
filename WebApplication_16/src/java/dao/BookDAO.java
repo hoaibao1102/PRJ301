@@ -78,7 +78,7 @@ public class BookDAO implements IDAO<BookDTO, String> {
 
     @Override
     public boolean update(BookDTO entity) {
-        String sql = "UPDATE tblBooks SET title = ?, author = ?, price = ?, quantity = ? WHERE BookID = ?";
+        String sql = "UPDATE tblBooks SET title = ?, author = ?, price = ?, quantity = ?,img = ? WHERE BookID = ?";
 
         try ( 
             Connection conn = DBUtils.getConnection();  
@@ -89,6 +89,7 @@ public class BookDAO implements IDAO<BookDTO, String> {
             ps.setDouble(3, entity.getPrice());
             ps.setInt(4, entity.getQuantity());
             ps.setString(5, entity.getBookID());
+            ps.setString(6, entity.getImg());
 
             int rowsAffected = ps.executeUpdate();
             return rowsAffected > 0;
