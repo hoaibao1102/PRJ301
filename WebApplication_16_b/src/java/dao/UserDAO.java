@@ -48,8 +48,8 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
     @Override
     public List<UserDTO> readAll() {
-        List<UserDTO> list = new ArrayList<UserDTO>();
-        String sql = "SELECT * FROM Users";
+        List<UserDTO> list = new ArrayList< UserDTO>();
+        String sql = "SELECT * FROM [tblUsers]";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
